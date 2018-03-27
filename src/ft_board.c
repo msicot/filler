@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_board.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 18:41:38 by msicot            #+#    #+#             */
-/*   Updated: 2018/03/27 12:13:43 by msicot           ###   ########.fr       */
+/*   Created: 2018/03/27 16:54:55 by msicot            #+#    #+#             */
+/*   Updated: 2018/03/27 17:10:16 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _GET_NEXT_LINE_H
-# define _GET_NEXT_LINE_H
+#include "filler.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include "./libft.h"
-# include <limits.h>
-# define BUFF_SIZE 32
-int					get_next_line(const int fd, char **line);
-#endif
+char	**ft_board(t_fill *info)
+{
+	int	i;
+	char	**tab;
+
+	i = 0;
+	if (!(tab = (char**)malloc(sizeof(char *) * (info->heigth + 1))))
+		return (NULL);
+	while (i <= info.heigth)
+	{
+		if (!(tab[i] = (char *)malloc(sizeof(char) * (info->width + 1))))
+			return (NULL);
+		ft_bzero(&tab[i++], info->width + 1);
+	}	
+	return (tab);
+}
