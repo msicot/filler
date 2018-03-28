@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_board.c                                         :+:      :+:    :+:   */
+/*   ft_piece.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/27 16:54:55 by msicot            #+#    #+#             */
-/*   Updated: 2018/03/28 13:26:26 by msicot           ###   ########.fr       */
+/*   Created: 2018/03/28 13:36:06 by msicot            #+#    #+#             */
+/*   Updated: 2018/03/28 15:04:57 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-char	**ft_board(int h, int w)
+void	ft_piece(t_fill *info, char *buff, int i)
 {
-	int	i;
 	char	**tab;
 
-	i = 0;
-	if (!(tab = (char **)malloc(sizeof(char *) * h + 1)))
-		return (NULL);
-	tab[h] = 0;
-	while (i <= h)
+	if (ft_strstr(buff, "Piece") != NULL)
 	{
-		if (!(tab[i] = (char *)malloc(sizeof(char) * w + 1)))
-			return (NULL);
-		tab[i][w] = '\0';
-		++i;
-	}	
-	return (tab);
+		tab = ft_strsplit(buff, ' ');
+		info->p_height = ft_atoi(tab[1]);
+		info->p_width = ft_atoi(tab[2]);
+		ft_clear_tab(&tab, 3);
+		if (info->piece == NULL)
+			info->piece = ft_board(info->p_height, info->p_width);
+	}
+	else if (i >= 0)
+	{
+		info->piece[i] = ft_strcpy(info->piece[i], buff);
+	}
 }

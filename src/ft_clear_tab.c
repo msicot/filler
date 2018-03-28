@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_board.c                                         :+:      :+:    :+:   */
+/*   ft_clear_tab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/27 16:54:55 by msicot            #+#    #+#             */
-/*   Updated: 2018/03/28 13:26:26 by msicot           ###   ########.fr       */
+/*   Created: 2018/03/28 13:26:34 by msicot            #+#    #+#             */
+/*   Updated: 2018/03/28 14:58:45 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-char	**ft_board(int h, int w)
+void	ft_clear_tab(char	***tab, int h)
 {
-	int	i;
-	char	**tab;
+	char	**tmp;
+	int		i;
 
+	if (tab == NULL)
+			return ;
+	tmp = *tab;
 	i = 0;
-	if (!(tab = (char **)malloc(sizeof(char *) * h + 1)))
-		return (NULL);
-	tab[h] = 0;
-	while (i <= h)
+	while (i < h)
 	{
-		if (!(tab[i] = (char *)malloc(sizeof(char) * w + 1)))
-			return (NULL);
-		tab[i][w] = '\0';
+		ft_strdel(&tmp[i]);
 		++i;
-	}	
-	return (tab);
+	}
+	free(tmp);	
 }

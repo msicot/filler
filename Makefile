@@ -6,11 +6,11 @@
 #    By: msicot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 14:13:34 by msicot            #+#    #+#              #
-#    Updated: 2018/03/26 14:24:25 by msicot           ###   ########.fr        #
+#    Updated: 2018/03/28 14:01:20 by msicot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = main.c
+SRC_NAME = main.c ft_board.c ft_piece.c ft_clear_tab.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
 SRC_PATH = ./src/
@@ -34,7 +34,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C ./libft
-	@gcc $(CFLGAS) $(OBJ) -L./libft/ -lft -o $(MN_NAME)
+	@gcc $(CFLGAS) -fsanitize=address $(OBJ) -L./libft/ -lft -o $(MN_NAME)
 	$(complete)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c

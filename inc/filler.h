@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 14:31:40 by msicot            #+#    #+#             */
-/*   Updated: 2018/03/27 17:33:25 by msicot           ###   ########.fr       */
+/*   Updated: 2018/03/28 14:58:50 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,21 @@
 # include "../libft/inc/libft.h"
 # include "../libft/inc/libftprintf.h"
 # include "../libft/inc/get_next_line.h"
+# define MAP info->map
 
 typedef struct s_fill
 {
 	int		lecture;
 	int		width;
-	int		heigth;
+	int		height;
 	int		player;
 	char	**map;
+	char	**piece;
+	int		p_height;
+	int		p_width;
 	char	*test;
 }				t_fill;
-char			**ft_board(t_fill *info);
+char			**ft_board(int h, int w);
+void			ft_clear_tab(char ***tab, int h);
+void			ft_piece(t_fill *info, char *buff, int i);
 #endif
