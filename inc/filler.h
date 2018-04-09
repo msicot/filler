@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 14:31:40 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/04 16:14:09 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/09 16:37:39 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_fill
 	char	player;
 	char	opponent;
 	int		error;
+	int		end;
 }				t_fill;
 
 int				ft_int_len(int n);

@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 09:38:20 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/04 16:14:07 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/09 17:20:47 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_piece(t_fill *info, char *buff)
 		tmp = PIECE;
 		PIECE = ft_strjoin(PIECE, "\n");
 		ft_strdel(&tmp);
+		++info->end;
 	}
 }
 

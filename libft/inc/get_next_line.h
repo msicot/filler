@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 18:41:38 by msicot            #+#    #+#             */
-/*   Updated: 2018/03/27 12:13:43 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/09 16:32:51 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 # include <unistd.h>
 # include "./libft.h"
 # include <limits.h>
-# define BUFF_SIZE 32
+# define BUFF_SIZ 1
 int					get_next_line(const int fd, char **line);
 #endif
