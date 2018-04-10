@@ -6,11 +6,11 @@
 #    By: msicot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 14:13:34 by msicot            #+#    #+#              #
-#    Updated: 2018/04/04 10:07:29 by msicot           ###   ########.fr        #
+#    Updated: 2018/04/10 14:45:00 by msicot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = main.c ft_board.c ft_clear_tab.c ft_check_lines.c ft_int_tab.c ft_int_len.c
+SRC_NAME = main.c ft_board.c ft_clear_tab.c ft_check_lines.c ft_int_tab.c ft_int_len.c ft_algo.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
 SRC_PATH = ./src/

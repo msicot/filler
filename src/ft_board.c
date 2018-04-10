@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 16:54:55 by msicot            #+#    #+#             */
-/*   Updated: 2018/03/29 10:59:09 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/10 15:23:44 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,24 @@ void	ft_print_itab(t_fill *info, int **tab)
 		{
 			if (tab[y][x] < 10 && tab[y][x] >=0)
 			{
-				ft_putstr_fd(" ", info->fd);
+				ft_putstr_fd(" ", 2);
 			}
-			ft_putnbr_fd(tab[y][x], info->fd);
+			ft_putnbr_fd(tab[y][x], 2);
 			if (tab[y][x] < 0)
 			{
-				ft_putstr_fd(" ", info->fd);
+				ft_putstr_fd(" ", 2);
 			}
 			else if (tab[y][x] < 10 && tab[y][x] >=0)
 			{
-				ft_putstr_fd(" ", info->fd);
+				ft_putstr_fd(" ", 2);
 			}
 			else 
-				ft_putstr_fd(" ", info->fd);
+				ft_putstr_fd(" ", 2);
 			++x;
 		}
-		ft_putstr_fd("\n", info->fd);
+		ft_putstr_fd("\n", 2);
 		++y;
 	}
-	ft_putstr_fd("\n", info->fd);
-	ft_putstr_fd("\n", info->fd);
+	ft_putstr_fd("\n", 2);
+	ft_putstr_fd("\n", 2);
 }

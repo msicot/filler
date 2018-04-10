@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 10:22:24 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/09 17:27:07 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/10 15:29:38 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,13 @@ int main()
 		
 	while (1)
 	{
-		if (ft_read_vm(&info) == 0)
+		if (ft_read_vm(&info) == -1)
+			break ; 
+		ft_algo(&info);
 			ft_printf("8 2\n");
 		break;
 	}
+//	ft_print_itab(&info, info.x_tab);
 	ft_putstr_fd(info.map, 2);
 	//	ft_int_tab(&info);
 	return (0);
