@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 09:38:20 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/10 17:13:36 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/11 17:55:42 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ int		get_map(t_fill *info, char *buff)
 		return (1);
 	MAP = ft_strjoin(MAP, buff);
 	ft_strdel(&tmp);
-//	tmp = MAP;
-//	MAP = ft_strjoin(MAP, "\n");
-//	ft_strdel(&tmp);
 	return (0);
 }
 
@@ -55,13 +52,13 @@ int		ft_check_ln(char *buff, t_fill *info)
 	{
 		if (ft_strncmp(buff, "$$$ exec p1", 11) == 0)
 		{
-			PLAYER = 'X';
-			OPPO = 'O';
+			PLAYER = 'O';
+			OPPO = 'X';
 		}
 		else if (ft_strncmp(buff, "$$$ exec p2", 11) == 0)
 		{
-			PLAYER = 'O';
-			OPPO = 'X';
+			PLAYER = 'X';
+			OPPO = 'O';
 		}
 		else if (ft_strncmp(buff, "Plateau", 7) == 0)
 		{
