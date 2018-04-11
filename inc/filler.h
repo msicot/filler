@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 14:31:40 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/10 18:30:23 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/11 18:02:49 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@
 # define OPPO info->opponent
 # define ERROR info->error
 # define PIECE info->piece
-# define X_TAB info->x_tab
+# define P_TAB info->p_tab
 # define O_TAB info->o_tab
-
+# define P2 info->piece2
+# define H_P info->p_height
+# define W_P info->p_width
+# define SET info->set
+# define POS_PL info->p_tab[pos / W_MAP][pos % W_MAP]
+# define POS_O info->o_tab[pos / W_MAP][pos % W_MAP]
 typedef struct s_fill
 {
 	int		lecture;
@@ -41,11 +46,12 @@ typedef struct s_fill
 //	int		player;
 	char	*map;
 	char	*piece;
+	char	**piece2;
 	bool	piece_set;
 	int		p_height;
 	int		p_width;
 	char	*test;
-	int		**x_tab;
+	int		**p_tab;
 	int		**o_tab;
 	int		p;
 	char	player;
@@ -53,15 +59,21 @@ typedef struct s_fill
 	int		error;
 	int		end;
 	int		target;
+	int		score;
+	int		pos_f;
+	bool	set;
 }				t_fill;
 
 int				ft_int_len(int n);
 int				ft_check_ln(char *buff, t_fill *info);
 char			**ft_board(int h, int w);
 void			ft_clear_tab(char ***tab, int h);
+void			ft_clear_itab(int ***tab, int h);
 void			ft_piece(t_fill *info, char *buff);
-void			ft_int_tab(t_fill *info, int ***tab2, char c);
+int				**ft_tab(t_fill *info, char c);
 void			ft_print_itab(t_fill *info, int **tab);
-void			ft_algo(t_fill *info);
+void			ft_prepa_algo(t_fill *info);
+int				ft_algo(t_fill *info);
+int				ft_check_place(t_fill *info, int pos);
 //void			ft_crop(t_fill *info);
 #endif
