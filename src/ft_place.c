@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:28:53 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/11 17:35:48 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/13 11:19:37 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int		ft_try_set(t_fill *info, int pos, int pos_p)
 
 int		ft_check_place(t_fill *info, int pos)
 {
-	int pos_p;	
+	int pos_p;
 
 	info->set = false;
 	pos_p = 0;

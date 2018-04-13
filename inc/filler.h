@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 14:31:40 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/11 18:02:49 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/13 11:43:19 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ typedef struct s_fill
 	int		target;
 	int		score;
 	int		pos_f;
+	int		nb_op;
+	int		cur_op;
+	int		my_score;
 	bool	set;
 }				t_fill;
 
@@ -74,6 +77,7 @@ int				**ft_tab(t_fill *info, char c);
 void			ft_print_itab(t_fill *info, int **tab);
 void			ft_prepa_algo(t_fill *info);
 int				ft_algo(t_fill *info);
+void			ft_bomba(t_fill *info, int target, int ***tab2);
 int				ft_check_place(t_fill *info, int pos);
 //void			ft_crop(t_fill *info);
 #endif

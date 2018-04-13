@@ -1,0 +1,3 @@
+make
+cd resources
+./filler_vm -f maps/map00 -p1 players/carli.filler -p2 ../msicot.filler | ./../show.filler -v 10

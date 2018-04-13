@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 08:39:08 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/11 17:56:28 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/13 12:12:36 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	ft_expand(t_fill *info, int x, int y, int ***tab2)
 		tab[y][x + 1] = (target == -1) ? 1 : target + 1;
 }
 
-static void	ft_bomba(t_fill *info, int target, int ***tab2)
+void	ft_bomba(t_fill *info, int target, int ***tab2)
 {
 	int	zero;
 	int	**tab;
@@ -102,6 +102,8 @@ int		**ft_tab(t_fill *info, char c)
 
 void	ft_prepa_algo(t_fill *info)
 {
+	int pos;
+
 	if (PLAYER == 'X')
 	{
 		P_TAB = ft_tab(info, 'X');
@@ -114,4 +116,22 @@ void	ft_prepa_algo(t_fill *info)
 
 	}
 	P2 = ft_strsplit(info->piece, '\n');
+	pos = 0;
+	while (pos < W_MAP * H_MAP)
+	{
+		if (MAP[pos] == OPPO)
+		{
+			++info->cur_op;
+		}
+		else if (MAP[pos] == PLAYER)
+		{
+			++info->my_score;
+		}
+		++pos;
+	}
+			ft_putstr_fd("Score me = ", info->fd);
+		ft_putnbr_fd(info->my_score, info->fd);
+		ft_putstr_fd(" Score OPPO = ", info->fd);
+		ft_putnbr_fd(info->cur_op, info->fd);
+			ft_putstr_fd("\n", info->fd);
 }

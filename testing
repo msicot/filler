@@ -1,8 +1,9 @@
 make
+killall TextEdit
 rm try.txt
 cd resources
-./filler_vm -f maps/map00 -p1 players/abanlin.filler -p2 ../msicot.filler > txt
+./filler_vm -f maps/map00 -p1 players/carli.filler -p2 ../msicot.filler > txt 
 mv txt ../
 cd ..
 chmod 777 try.txt
-cat try.txt
+open txt try.txt 
