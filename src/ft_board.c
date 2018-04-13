@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 16:54:55 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/13 10:21:14 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/13 14:45:25 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	**ft_board(int h, int w)
 {
-	int	i;
+	int		i;
 	char	**tab;
 
 	i = 0;
@@ -28,34 +28,30 @@ char	**ft_board(int h, int w)
 		ft_bzero(tab[i], w);
 		tab[i][w] = '\0';
 		++i;
-	}	
+	}
 	return (tab);
 }
 
 void	ft_print_itab(t_fill *info, int **tab)
 {
-	int x = 0;
-	int y = 0;
+	int	x;
+	int	y;
 
+	y = 0;
+	x = 0;
 	while (y < H_MAP)
 	{
 		x = 0;
 		while (x < W_MAP)
 		{
-			if (tab[y][x] < 10 && tab[y][x] >=0)
-			{
+			if (tab[y][x] < 10 && tab[y][x] >= 0)
 				ft_putstr_fd(" ", info->fd);
-			}
 			ft_putnbr_fd(tab[y][x], info->fd);
 			if (tab[y][x] < 0)
-			{
 				ft_putstr_fd(" ", info->fd);
-			}
-			else if (tab[y][x] < 10 && tab[y][x] >=0)
-			{
+			else if (tab[y][x] < 10 && tab[y][x] >= 0)
 				ft_putstr_fd(" ", info->fd);
-			}
-			else 
+			else
 				ft_putstr_fd(" ", info->fd);
 			++x;
 		}

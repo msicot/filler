@@ -1,0 +1,9 @@
+clear
+make
+killall TextEdit
+cd resources
+./filler_vm -f maps/map01 -p1 players/carli.filler -p2 ../msicot.filler > txt 
+mv txt ../
+cd ..
+tail txt
+open txt

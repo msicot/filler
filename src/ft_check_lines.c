@@ -6,15 +6,15 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 09:38:20 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/11 17:55:42 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/13 14:52:24 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int		get_map(t_fill *info, char *buff)
+static int	get_map(t_fill *info, char *buff)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = MAP;
 	if ((int)ft_strlen(buff) != W_MAP)
@@ -24,7 +24,7 @@ int		get_map(t_fill *info, char *buff)
 	return (0);
 }
 
-void	ft_piece(t_fill *info, char *buff)
+void		ft_piece(t_fill *info, char *buff)
 {
 	char	*tmp;
 
@@ -32,7 +32,7 @@ void	ft_piece(t_fill *info, char *buff)
 	if (ft_strncmp(buff, "Piece", 5) == 0)
 	{
 		info->p_height = ft_atoi(&buff[5]);
-		info->p_width = ft_atoi(&buff[5 + 1 + ft_int_len(info->p_height)]);	
+		info->p_width = ft_atoi(&buff[5 + 1 + ft_int_len(info->p_height)]);
 	}
 	else
 	{
@@ -46,20 +46,29 @@ void	ft_piece(t_fill *info, char *buff)
 	}
 }
 
-int		ft_check_ln(char *buff, t_fill *info)
+static int	ft_player(t_fill *info, char *buff)
+{
+	if (ft_strncmp(buff, "$$$ exec p1", 11) == 0)
+	{
+		PLAYER = 'O';
+		OPPO = 'X';
+		return (1);
+	}
+	else if (ft_strncmp(buff, "$$$ exec p2", 11) == 0)
+	{
+		PLAYER = 'X';
+		OPPO = 'O';
+		return (1);
+	}
+	return (0);
+}
+
+int			ft_check_ln(char *buff, t_fill *info)
 {
 	if (buff)
 	{
-		if (ft_strncmp(buff, "$$$ exec p1", 11) == 0)
-		{
-			PLAYER = 'O';
-			OPPO = 'X';
-		}
-		else if (ft_strncmp(buff, "$$$ exec p2", 11) == 0)
-		{
-			PLAYER = 'X';
-			OPPO = 'O';
-		}
+		if (ft_player(info, buff) == 1)
+			return (1);
 		else if (ft_strncmp(buff, "Plateau", 7) == 0)
 		{
 			H_MAP = ft_atoi(&buff[7]);
@@ -69,8 +78,9 @@ int		ft_check_ln(char *buff, t_fill *info)
 		{
 			ERROR = get_map(info, buff + 4);
 		}
-		else if (buff[0] == '.' || buff[0] == '*' || ft_strncmp(buff, "Piece", 5) == 0)
-					ft_piece(info, buff);
+		else if (buff[0] == '.' || buff[0] == '*' ||
+				ft_strncmp(buff, "Piece", 5) == 0)
+			ft_piece(info, buff);
 		return (1);
 	}
 	return (0);
