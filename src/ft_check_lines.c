@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 09:38:20 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/13 14:52:24 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/16 12:20:43 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,29 @@
 static int	get_map(t_fill *info, char *buff)
 {
 	char	*tmp;
+	int		i;
 
+	i = 0;
 	tmp = MAP;
 	if ((int)ft_strlen(buff) != W_MAP)
-		return (1);
+		return (0);
 	MAP = ft_strjoin(MAP, buff);
 	ft_strdel(&tmp);
-	return (0);
+	while (buff[i])
+	{
+		if (buff[i] != '.' && buff[i] != 'X' && buff[i] != 'O')
+			return (0);
+		++i;
+	}
+	return (1);
 }
 
 void		ft_piece(t_fill *info, char *buff)
 {
 	char	*tmp;
+	int		i;
 
+	i = 0;
 	tmp = PIECE;
 	if (ft_strncmp(buff, "Piece", 5) == 0)
 	{
@@ -76,7 +86,8 @@ int			ft_check_ln(char *buff, t_fill *info)
 		}
 		else if (buff[0] >= '0' && buff[0] <= '9')
 		{
-			ERROR = get_map(info, buff + 4);
+			if (get_map(info, buff + 4) == 0)
+				return (0);
 		}
 		else if (buff[0] == '.' || buff[0] == '*' ||
 				ft_strncmp(buff, "Piece", 5) == 0)

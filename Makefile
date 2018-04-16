@@ -6,7 +6,7 @@
 #    By: msicot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 14:13:34 by msicot            #+#    #+#              #
-#    Updated: 2018/04/13 14:34:40 by msicot           ###   ########.fr        #
+#    Updated: 2018/04/16 11:23:25 by msicot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C ./libft
-	@gcc $(CFLGAS) -fsanitize=address $(OBJ) -L./libft/ -lft -o $(MN_NAME)
+	@gcc $(CFLGAS) $(OBJ) -L./libft/ -lft -o $(MN_NAME)
 	$(complete)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c

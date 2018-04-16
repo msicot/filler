@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:38:14 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/09 16:40:00 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/16 13:25:29 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ static char	*ft_read(int fd, char *sfd)
 		if (ft_strchr(buf, '\n') != 0)
 			break ;
 	}
-	if (ret == 0)
 	ft_strdel(&buf);
 	return (sfd);
 }

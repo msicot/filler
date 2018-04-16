@@ -6,18 +6,11 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 10:22:24 by msicot            #+#    #+#             */
-/*   Updated: 2018/04/13 16:28:07 by msicot           ###   ########.fr       */
+/*   Updated: 2018/04/16 12:21:34 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-
-/*int			ft_error(t_fill *info)
-{
-	if (W_MAP == 0 || H_MAP == 0 || W_P == 0 || H_P == 0)
-		return (-1);
-	return (0);
-}*/
 
 int			ft_read_vm(t_fill *info, char *buff)
 {
@@ -26,16 +19,15 @@ int			ft_read_vm(t_fill *info, char *buff)
 		get_next_line(0, &buff);
 		if (ft_check_ln(buff, info) == 0)
 		{
+			ft_printf("0 0\n");
 			ft_strdel(&buff);
-			break ;
+			return (0);
 		}
 		ft_strdel(&buff);
 		if (info->end != 0 && info->end == info->p_height)
-		{
-			return (0);
-		}
+			break ;
 	}
-	return (0);
+	return (1);
 }
 
 static void	ft_clear_info(t_fill *info)
@@ -72,7 +64,7 @@ int			main(void)
 	set_var(&info);
 	while (1)
 	{
-		if (ft_read_vm(&info, buff) == -1)
+		if (ft_read_vm(&info, buff) == 0)
 			break ;
 		info.pos_f = ft_algo(&info);
 		if (info.pos_f >= 0)
